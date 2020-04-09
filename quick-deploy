@@ -62,7 +62,7 @@ wget -nv -c --show-progress --progress=bar:force:noscroll "${_dependencies_downl
 
 for package in "${_dependencies_quickdeploy[@]}"; do
   wget -nv -c --show-progress --progress=bar:force:noscroll "${package}" -O qdpkgf.tar.gz
-  tar xf qdpkgf.tar.gz -C /
+  tar -xzf qdpkgf.tar.gz -C /
   rm qdpkgf.tar.gz
 done
 
