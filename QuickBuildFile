@@ -1,0 +1,41 @@
+name: pango1.0
+slug: project-portable/pango1.0
+
+build:
+  configure: meson
+  make: ninja
+
+dependencies:
+  quickbuild:
+    - https://github.com/project-portable/glib2.0/releases/download/continuous/glib-2.0.tar.gz
+  apt:
+    - fonts-cantarell
+    - gnome-pkg-tools
+    - gobject-introspection
+    - gtk-doc-tools
+    - help2man
+    - libcairo2-dev
+    - libfontconfig1-dev
+    - libfreetype6-dev
+    - libgirepository1.0-dev
+    - libglib2.0-dev
+    - libharfbuzz-dev
+    - libthai-dev
+    - libx11-dev
+    - libxft-dev
+    - libxrender-dev
+    - libxt-dev
+    - perl
+    - pkg-config 
+  download:
+    - https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz
+    - https://raw.githubusercontent.com/probonopd/uploadtool/master/upload.sh
+    
+steps:
+  before:
+    - tar -xJf  pango-1.44.7.tar.xz
+    - mv pango-1.44.7/* .
+  extra:
+    - echo oi
+  after:
+    - bash upload.sh pango1.0.tar.gz
