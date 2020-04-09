@@ -35,5 +35,10 @@ steps:
   before:
     - tar -xJf  pango-1.44.7.tar.xz
     - mv pango-1.44.7/* .
+    - git clone https://github.com/project-portable/harfbuzz.git
+    - cd harfbuzz
+    - sed -i '38,39d' QuickBuildFile 
+    - bash quick-deploy
+    - cd ..
   after:
     - bash upload.sh pango1.0.tar.gz
