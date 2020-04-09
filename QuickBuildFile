@@ -35,7 +35,5 @@ steps:
   before:
     - tar -xJf  pango-1.44.7.tar.xz
     - mv pango-1.44.7/* .
-  extra:
-    - echo oi
   after:
     - bash upload.sh pango1.0.tar.gz
