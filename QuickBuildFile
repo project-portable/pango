@@ -41,4 +41,4 @@ steps:
     - bash quick-deploy
     - cd ..
   after:
-    - bash upload.sh pango1.0.tar.gz
+    - bash upload.sh *.tar.gz
