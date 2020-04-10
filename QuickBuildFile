@@ -29,8 +29,7 @@ dependencies:
     - pkg-config 
   download:
     - https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz
-    - https://raw.githubusercontent.com/probonopd/uploadtool/master/upload.sh
-    
+
 steps:
   before:
     - tar -xJf  pango-1.44.7.tar.xz
@@ -40,5 +39,3 @@ steps:
     - sed -i '38,39d' QuickBuildFile 
     - bash quick-deploy
     - cd ..
-  after:
-    - bash upload.sh *.tar.gz
