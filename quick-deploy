@@ -94,7 +94,7 @@ echo "---------------------------------------End"
 for file in ./subprojects/*; do
   echo "${file}"
   [ -f "${file}" ] && {
-    _name=$(baseame -s.wrap "${file}")
+    _name=$(basename -s.wrap "${file}")
     rm -rf build_environment/*
     mkdir -p build_environment/
     ${_steps_install} | grep "subprojects/${_name}/" | grep ^"Installing" | awk '{print "cp -v --parents",$4"/$(basename "$2") ./build_environment"}' | sh 
