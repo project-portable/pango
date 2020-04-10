@@ -32,6 +32,7 @@ dependencies:
 
 steps:
   before:
+    - rm /usr/lib/x86_64-linux-gnu/pkgconfig/wayland-*
     - tar -xJf  pango-1.44.7.tar.xz
     - mv pango-1.44.7/* .
     - git clone https://github.com/project-portable/harfbuzz.git
