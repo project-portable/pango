@@ -1,5 +1,5 @@
 name: pango1.0
-slug: project-portable/pango1.0
+slug: project-portable/pango
  
 build:
   configure: meson
