@@ -84,9 +84,11 @@ for step in "${_steps_install[@]}"; do
   ${step}
 done
 
+${_steps_install}
+
 ${_steps_install} | grep ^"Installing" | grep -v "/subprojects/" \
                   | awk '{print "cp -v --parents",$4"/$(basename "$2") ./build_environment"}' \
-                  | sh
+                  | sh > /dev/null
 
 for step in "${_steps_extra[@]}"; do
   ${step}
