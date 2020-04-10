@@ -87,8 +87,20 @@ done
 echo "---------------------------------------Start"
 
 ${_steps_install} | grep -v "subprojects" | grep ^"Installing" | awk '{print "cp -v --parents",$4"/$(basename "$2") ./build_environment"}' | sh 
+tar -cvzf ${_name}.tar.gz -C build_environment .
 
 echo "---------------------------------------End"
+
+for file in ./subprojects/*; do
+  [ -f "${file}" ] && {
+    _name=$(baseame -s.wrap "${file}")
+    rm -rf build_environment/*
+    mkdir -p build_environment/
+    ${_steps_install} | grep "subprojects/${_name}/" | grep ^"Installing" | awk '{print "cp -v --parents",$4"/$(basename "$2") ./build_environment"}' | sh 
+    tar -cvzf ${_name}.tar.gz -C build_environment .
+  }
+done
+
 
 ${_steps_install} 
 
